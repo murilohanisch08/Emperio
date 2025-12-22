@@ -1,0 +1,8 @@
+{
+    "CAND"     :"api/v1/candidatos",
+    "AGEN_FERI":"api/v1/agendamentos-ferias",
+    "ATEN"     :"api/v1/integracao/atendimentos",
+    "NOTI_RESC":"api/v1/notificacoes-rescisao",
+    "MOVI"     :"api/v1/movimentos",
+    "INTE_ALTE":"api/v1/integracao/integracaoAlterdata"
+}

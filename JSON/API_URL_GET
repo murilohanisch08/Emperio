@@ -1,0 +1,11 @@
+{
+    "CAND"     :"/api/v1/integracao/categoria-documento",
+    "AGEN_FERI":"/api/v1/integracao/certidoes",
+    "ATEN"     :"/api/v1/integracao/tipoCertidao",
+    "NOTI_RESC":"/api/v1/integracao/documentos",
+    "MOVI"     :"/api/v1/empresas",
+    "INTE_ALTE":"/api/v1/integracao/empresas",
+    "HIST_TARE":"/api/v1/integracao/historico-tarefas",
+    "HIST_FUNC":"/api/v1/historico-funcoes",
+    "USUA"     :"/api/v1/integracao/usuarios"
+}

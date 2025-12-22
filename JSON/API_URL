@@ -1,0 +1,7 @@
+{
+    "dppack"       :"https://dp.pack.alterdata.com.br",
+    "atendimentos" :"https://atendimentos.pack.alterdata.com.br",
+    "cnd"          :"https://cnd.pack.alterdata.com.br",
+    "documentos"   :"https://documentos.pack.alterdata.com.br",
+    "identificacao":"https://identificacao.pack.alterdata.com.br"
+}
