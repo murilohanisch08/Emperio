@@ -3,17 +3,19 @@ import sys
 import requests
 import json
 
+#Pegando dados do JSON para gerar as URLs
 API_URLS  = json.loads(open('../JSON/API_URL').read())
 API_POSTS = json.loads(open('../JSON/API_URL_POST').read())
 API_GETS  = json.loads(open('../JSON/API_URL_GET').read())
 
-
+#base Urls API
 Url_type = [API_URLS["dppack"],
             API_URLS["atendimentos"],
             API_URLS["cnd"],
             API_URLS["documentos"],
             API_URLS["identificacao"]]
 
+#final Url Api Post
 URl_Endpoint_POST = [API_POSTS["CAND"],
                     API_POSTS["AGEN_FERI"],
                     API_POSTS["ATEN"],
@@ -22,6 +24,7 @@ URl_Endpoint_POST = [API_POSTS["CAND"],
                     API_POSTS["INTE_ALTE"]]
 
 
+#final Url Api GET
 URl_Endpoint_GET = [API_GETS["CAND"],
                     API_GETS["AGEN_FERI"],
                     API_GETS["ATEN"],
@@ -32,9 +35,10 @@ URl_Endpoint_GET = [API_GETS["CAND"],
                     API_GETS["HIST_FUNC"],
                     API_GETS["USUA"]]
 
-
+#token de acesso à API
 TOKEN_ENV_NAME = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1YyI6IjI1NzM5IiwiaXNzIjoicGFja3VwIiwiZGF0YSI6IjIwMjUtMTItMDhUMDg6MTg6MTAuNTIxMzk5Ny0wMzowMCJ9.bjcJPqjyvNXFUpwwgX_7qR45Q-fdlVc-DApUxs6TB9SJhSi4lz9NX5gQP_IYch9G6M6NEwsG6tQctKqeXcZ9Ww"   # nome da variável de ambiente que guarda o token
 
+#verifica se on toke é valido
 def get_bearer_token():
     token = TOKEN_ENV_NAME
     if token:
@@ -42,6 +46,8 @@ def get_bearer_token():
     print(f"Erro: variável de ambiente {TOKEN_ENV_NAME} não encontrada.")
     sys.exit(1)
 
+
+#acessa a API
 def get_resource(Params=None,API_URL=None):
     token = get_bearer_token()
     headers = {
@@ -60,13 +66,45 @@ def get_resource(Params=None,API_URL=None):
         print("Resposta não é JSON válido.")
         sys.exit(3)
 
+#----GET'S----#
+
+#GET CATEGORIA DE DOCUMENTOS
 def GET_CATE_DOC(Params={}):
    # params = {"filter[login]": 31616520000157,"filter[descricao]": "Livros Fiscais/Contábeis"}
+    API_URL = Url_type[3]+URl_Endpoint_GET[0]
+    data = get_resource(Params=Params,API_URL=API_URL)
+    print(json.dumps(data, ensure_ascii=False, indent=2))
+
+#GET TIPO DE CERTIDÕES
+def GET_TIPO_CERT(Params={}):
+   
     API_URL = Url_type[2]+URl_Endpoint_GET[2]
     data = get_resource(Params=Params,API_URL=API_URL)
     print(json.dumps(data, ensure_ascii=False, indent=2))
 
+#GET EMPRESAS
+def GET_EMPRESAS(Params={}):
+   
+    API_URL = Url_type[0]+URl_Endpoint_GET[4]
+    data = get_resource(Params=Params,API_URL=API_URL)
+    print(json.dumps(data, ensure_ascii=False, indent=2))
+
+#
+def GET_3(Params={}):
+   
+    API_URL = Url_type[2]+URl_Endpoint_GET[2]
+    data = get_resource(Params=Params,API_URL=API_URL)
+    print(json.dumps(data, ensure_ascii=False, indent=2))
+
+#
+def GET_4(Params={}):
+   
+    API_URL = Url_type[2]+URl_Endpoint_GET[2]
+    data = get_resource(Params=Params,API_URL=API_URL)
+    print(json.dumps(data, ensure_ascii=False, indent=2))
+
+
 if __name__ == "__main__":
-    GET_CATE_DOC({})
+    GET_EMPRESAS()
 
     
